@@ -2,7 +2,7 @@ import os
 
 import requests
 
-from file_ops import local_load_data
+from .ops import local_load_data
 
 API_URL = "https://api.spotify.com"
 
@@ -88,10 +88,13 @@ class SpotifyAPI():
         return self.paginate(f"{API_URL}/v1/me/tracks")
 
     def get_playlists(self, ):
-        return get_req("v1/me/playlists")
+        return self.get_req(f"{API_URL}/v1/me/playlists")
 
     def get_playlist_tracks(self, playlist_id:str):
-        return get_req(f"/v1/playlists/{playlist_id}/tracks")
+        return self.get_req(f"{API_URL}/v1/playlists/{playlist_id}/tracks")
+
+    def get_recently_played(self):
+        return self.get_req(f"{API_URL}/v1/me/player/currently-playing")
 
     def paginate(self, url):
         pages = []
