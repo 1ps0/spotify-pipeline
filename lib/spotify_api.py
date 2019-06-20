@@ -13,7 +13,7 @@ def get_access_token():
     #     return access_token
     tokens = local_load_data('spotify_auth_tokens.json')
     refresh_token = os.getenv('SPOTIFY_REFRESH_TOKEN', tokens['refresh_token'])
-    hash_auth = f"Basic {os.getenv('SPOTIFY_HASH', 'YmFjYTlmZDRmNTM5NGRlZGE3NWQzNmE0ZmU2YmEyZDc6ZThhZTFlNjJiMGU4NDlhNDhhOTg1OWY2NTE4ZGM3MmM')}"
+    hash_auth = f"Basic {os.getenv('SPOTIFY_HASH')}"
 
     data = {'grant_type': 'refresh_token', 'refresh_token': refresh_token}
 

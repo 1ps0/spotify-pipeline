@@ -2,3 +2,4 @@ data/
 __pycache__/
 .DS_Store
 spotify_auth_tokens.json
+analysis/.ipynb_checkpoints/
